@@ -2,22 +2,14 @@ h2{
   color:#512E5F
 }
 
-.content_container{
-  background-color: solid;
-  max-width: 768px;
-}
-
 .name_containter{
   background-color: #D5B2E3
-  height: 384px;
-  width: 384px;
+  Height:
+  width:
 }
 
 .image_containter{
   float: left;
-  height: 384px;
-  width: 384px;
-  border-radius: 25%;
 }
 
 .biobox{
