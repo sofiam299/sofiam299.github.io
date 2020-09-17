@@ -8,14 +8,14 @@ h2{
 }
 
 .newstitle{
-  background-color: teal;
+  background-color: solid;
   padding: 20px 10px 20px 10px;
   margin-bottom: 30px;
   color: white;
 }
 
 .newssite{
-  background-color: solid;
+  background-color: teal;
   padding: 10px 10px 10px 10px;
   margin-bottom: 30px;
   margin-right: 30px;
