@@ -2,6 +2,7 @@ h2{
   color:#512E5F
 }
 
+<<<<<<< HEAD
 .content_container{
   background-color: solid;
   max-width: 768px;
@@ -21,8 +22,9 @@ h2{
   overflow: hidden;
 }
 
+=======
+>>>>>>> parent of eb22325... floating content
 .biobox{
-  float: left;
   border-width:2px;
   border-style:solid;
   border-color:black;
