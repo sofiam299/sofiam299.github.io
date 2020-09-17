@@ -31,7 +31,7 @@ h2{
 }
 
 .news_container{
-width: 384px;
+max-width: 768px;
 }
 
 .newstitle{
