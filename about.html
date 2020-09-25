@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <title>About Me</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="stylesheet" href="site.css">
+
       <script>
         window.onload = function() {
           // functions that run after page loads
@@ -23,7 +27,7 @@
         }
         // get weather data from openweathermap and display the current temp
         function fetchWeather() {
-          fetch("https://api.openweathermap.org/data/2.5/weather?zip=ee32ef463083c0b038630f75b9fd2ed8,US&appid=APICODEHERE&units=imperial")
+          fetch("https://api.openweathermap.org/data/2.5/weather?zip=85701,US&appid=ee32ef463083c0b038630f75b9fd2ed8")
           .then(function(resp) { return resp.json() })
           .then(function(data) {
             document.getElementById("weather").innerHTML = data.main.temp;
@@ -33,9 +37,7 @@
           });
         }
       </script>
-      <title>About Me</title>
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <link rel="stylesheet" href="site.css">
+
     </head>
     <body>
       <center>
