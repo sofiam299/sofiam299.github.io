@@ -30,7 +30,7 @@
           fetch("https://api.openweathermap.org/data/2.5/weather?zip=85701,US&appid=ee32ef463083c0b038630f75b9fd2ed8&units=imperial")
           .then(function(resp) { return resp.json() })
           .then(function(data) {
-            document.getElementById("weather").innerHTML = data.main.temp;
+            document.getElementById("weather").innerHTML = "It is currently " + data.main.temp + "&#176;" + " in Tucson, AZ";
           })
           .catch(function() {
             document.getElementById("weather").innerHTML = "Error in fetchWeather function"
@@ -48,25 +48,17 @@
           <div class="image_container">
             <img src="https://tucson.com/app/images/ua/storm.jpg">
           </div>
-      </center>
           <br>
-        <center>
             <div class="bio_container">
               I am a senior at the University of Arizona studying journalism and French with a minor in studio art photography.
               In 2005 my family and I moved from Chile to the United States and I am just now in the process of getting my citixenship.
               With all the pandemic hapening right now, I have no idea how life is going to look like after graduation and I'm a bit worried about the job market... but I guess that was always an issue for the journalism world...
               Also I love Jacob!
             </div>
-            <div class="clear"></div>
-        </center>
       </div>
-
-  <center>
+      <div class="clear"></div>
     <div class="news_container">
-      <center>
-          <center>
             <div class="newstitle"> News Sites</div>
-          </center>
         <div class="newssite"><a href="https://www.nytimes.com/" target="_blank">www.nytimes.com</a></div>
         <div class="newssite"><a href="https://www.wsj.com/" target="_blank">www.wsj.com</a></div>
         <div class="newssite"><a href="https://tucson.com/" target="_blank">tucson.com</a></div>
@@ -75,11 +67,12 @@
         <div class="newssite"><a href="https://apnews.com/" target="_blank">apnews.com</a></div>
         <div class="newssite"><a href="https://www.seattletimes.com/" target="_blank">www.seattletimes.com</a></div>
         <div class="newssite"><a href="https://www.latimes.com/" target="_blank">www.latimes.com</a></div>
-        <div class="clear"></div>
-      </center>
     </div>
-  </center>
+    <div class="clear"></div>
+      <div class="weather">
       <div id="greeting"></div>
       <div id="weather"></div>
+    </div>
+      </center>
     </body>
 </html>
