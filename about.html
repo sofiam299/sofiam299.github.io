@@ -9,7 +9,7 @@
         window.onload = function() {
           // functions that run after page loads
           displayGreeting();
-          fetchWeather();
+          fetchWeather("85701");
         }
         // display good morning, afternoon or evening based on the time
         function displayGreeting() {
@@ -27,7 +27,7 @@
         }
         // get weather data from openweathermap and display the current temp
         function fetchWeather() {
-          fetch("https://api.openweathermap.org/data/2.5/weather?zip=85701,US&appid=ee32ef463083c0b038630f75b9fd2ed8")
+          fetch("https://api.openweathermap.org/data/2.5/weather?zip=85701,US&appid=ee32ef463083c0b038630f75b9fd2ed8&units=imperial")
           .then(function(resp) { return resp.json() })
           .then(function(data) {
             document.getElementById("weather").innerHTML = data.main.temp;
