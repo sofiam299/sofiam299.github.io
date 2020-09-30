@@ -10,6 +10,7 @@
           // functions that run after page loads
           displayGreeting();
           fetchWeather("85701");
+          displayRSSFeed ();
         }
         // display good morning, afternoon or evening based on the time
         function displayGreeting() {
@@ -35,10 +36,6 @@
           .catch(function() {
             document.getElementById("weather").innerHTML = "Error in fetchWeather function"
           });
-        }
-
-        window.onload = function (){
-          displayRSSFeed ();
         }
           function displayRSSFeed() {
                   // fetch an RSS feed and display the title and description
