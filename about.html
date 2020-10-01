@@ -11,6 +11,7 @@
           displayGreeting();
           fetchWeather("85701");
           displayRSSFeed ();
+          listSheet;
         }
         // display good morning, afternoon or evening based on the time
         function displayGreeting() {
@@ -53,6 +54,28 @@
                         document.getElementById("rss_items").innerHTML += divElement;
                       }
                     }
+                  });
+                }
+          function listSheet() {
+                  // list google sheet rows
+                  fetch('https://api.sheetson.com/v2/sheets/sheet1', {
+                    withCredentials: true,
+                    headers: {
+                      'Content-Type': 'application/json',
+                      'Authorization': 'EquoeTxlms8W0dNTMwMjT9ewKVZq3Wm-p6v5aXMpdxv4qyF0Neu3Bk31BuIOcg',
+                      'X-Sheetson-Spreadsheet-Id': '1zcBM9EuT8Qk5fzo3k9ZS_f7q7F43DEvnA_X0ixu_w6k'
+                    }
+                  })
+                  .then(function(resp) { return resp.json() })
+                  .then(function(data) {
+                    for (var i = 0; i < data.results.length; i++) {
+                      var result = data.results[i];
+                      let divElement = '<div class="cell">' + '<div class="cell_name">' + result.name + '</div>' + '<div class="cell_address">' + result.address + '</div>' + '<div class="cell_url"><a href="' + result.url + '">' + result.url + '</a></div>' + '<div class="cell_phone">' + result.phone + '</div>' + '</div>';
+                      document.getElementById("sheet").innerHTML += divElement;
+                    }
+                  })
+                  .catch(function() {
+                    document.getElementById("sheet").innerHTML = "Error in listSheet function";
                   });
                 }
       </script>

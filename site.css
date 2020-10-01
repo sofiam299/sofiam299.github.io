@@ -93,3 +93,19 @@ img {
   border: 1px solid black;
   padding: 10px, 10px, 10px, 10px;
 }
+#cell{
+  padding: 10px, 10px, 10px, 10px;
+  border: 1px solid black;
+}
+.cell_name{
+  text-align: left;
+}
+.cell_address{
+  text-align: left;
+}
+.cell_url{
+  text-align: left;
+}
+.cell_phone{
+  text-align: left;
+}
