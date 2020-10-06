@@ -11,73 +11,92 @@
           displayGreeting();
           fetchWeather("85701");
           displayRSSFeed ();
-          listSheet ();
+          var mymap = drawMap ();
+          listSheet (mymap);
         }
         // display good morning, afternoon or evening based on the time
         function displayGreeting() {
-          var date = new Date();
-          var hour = date.getHours();
-          var description = "";
-          if (hour < 12) {
-            description = "morning";
-          } else if (hour < 17) {
-            description = "afternoon";
-          } else {
-            description = "evening";
+            var date = new Date();
+            var hour = date.getHours();
+            var description = "";
+            if (hour < 12) {
+              description = "morning";
+            } else if (hour < 17) {
+              description = "afternoon";
+            } else {
+              description = "evening";
+            }
+            document.getElementById("greeting").innerHTML = "Good " + description;
           }
-          document.getElementById("greeting").innerHTML = "Good " + description;
-        }
-        // get weather data from openweathermap and display the current temp
+          // get weather data from openweathermap and display the current temp
         function fetchWeather() {
-          fetch("https://api.openweathermap.org/data/2.5/weather?zip=85701,US&appid=ee32ef463083c0b038630f75b9fd2ed8&units=imperial")
-          .then(function(resp) { return resp.json() })
-          .then(function(data) {
-            document.getElementById("weather").innerHTML = "It is currently " + data.main.temp + "&#176;" + " in Tucson, AZ";
-          })
-          .catch(function() {
-            document.getElementById("weather").innerHTML = "Error in fetchWeather function"
-          });
-        }
-          function displayRSSFeed() {
-                  // fetch an RSS feed and display the title and description
-                  var origURL = 'https://rss.nytimes.com/services/xml/rss/nyt/Arts.xml';
-                  // feednami doesn't like & so replace with %26
-                  var replacedURL = origURL.replace(/&/g, "%26");
-                  feednami.load(replacedURL,function(result) {
-                    if (result.error) {
-                      console.log(result.error);
-                    } else {
-                      var entries = result.feed.entries
-                      for (var i = 0; i < entries.length; i++) {
-                        var entry = entries[i];
-                        let divElement = '<div class="rss_title"><a href="' + entry.link + '" target="_blank">' + entry.title + '</a></div><div class="rss_description">' + entry.description + '</div>';
-                        document.getElementById("rss_items").innerHTML += divElement;
-                      }
-                    }
-                  });
+            fetch("https://api.openweathermap.org/data/2.5/weather?zip=85701,US&appid=ee32ef463083c0b038630f75b9fd2ed8&units=imperial")
+            .then(function(resp) { return resp.json() })
+            .then(function(data) {
+              document.getElementById("weather").innerHTML = "It is currently " + data.main.temp + "&#176;" + " in Tucson, AZ";
+            })
+            .catch(function() {
+              document.getElementById("weather").innerHTML = "Error in fetchWeather function"
+            });
+          }
+        function displayRSSFeed() {
+            // fetch an RSS feed and display the title and description
+            var origURL = 'https://rss.nytimes.com/services/xml/rss/nyt/Arts.xml';
+            // feednami doesn't like & so replace with %26
+            var replacedURL = origURL.replace(/&/g, "%26");
+            feednami.load(replacedURL,function(result) {
+              if (result.error) {
+                console.log(result.error);
+              } else {
+                var entries = result.feed.entries
+                for (var i = 0; i < entries.length; i++) {
+                  var entry = entries[i];
+                  let divElement = '<div class="rss_title"><a href="' + entry.link + '" target="_blank">' + entry.title + '</a></div><div class="rss_description">' + entry.description + '</div>';
+                  document.getElementById("rss_items").innerHTML += divElement;
                 }
-          function listSheet() {
-                  // list google sheet rows
-                  fetch('https://api.sheetson.com/v2/sheets/Sheet1', {
-                    withCredentials: true,
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'Authorization': 'Bearer EquoeTxlms8W0dNTMwMjT9ewKVZq3Wm-p6v5aXMpdxv4qyF0Neu3Bk31BuIOcg',
-                      'X-Sheetson-Spreadsheet-Id': '1zcBM9EuT8Qk5fzo3k9ZS_f7q7F43DEvnA_X0ixu_w6k'
-                    }
-                  })
-                  .then(function(resp) { return resp.json() })
-                  .then(function(data) {
-                    for (var i = 0; i < data.results.length; i++) {
-                      var result = data.results[i];
-                      let divElement = '<div class="cell">' + '<div class="cell_name">' + result.name + '</div>' + '<div class="cell_address">' + result.address + '</div>' + '<div class="cell_url"><a href="' + result.url + '">' + result.url + '</a></div>' + '<div class="cell_phone">' + result.phone + '</div>' + '</div>';
-                      document.getElementById("sheet").innerHTML += divElement;
-                    }
-                  })
-                  .catch(function() {
-                    document.getElementById("sheet").innerHTML = "Error in listSheet function";
-                  });
-                }
+              }
+            });
+          }
+        function listSheet(mymap) {
+            // list google sheet rows
+            fetch('https://api.sheetson.com/v2/sheets/Sheet1?no-cache=true', {
+              withCredentials: true,
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer EquoeTxlms8W0dNTMwMjT9ewKVZq3Wm-p6v5aXMpdxv4qyF0Neu3Bk31BuIOcg',
+                'X-Sheetson-Spreadsheet-Id': '1zcBM9EuT8Qk5fzo3k9ZS_f7q7F43DEvnA_X0ixu_w6k'
+              }
+            })
+            .then(function(resp) { return resp.json() })
+            .then(function(data) {
+              for (var i = 0; i < data.results.length; i++) {
+                var result = data.results[i];
+                let divElement = '<div class="cell">' + '<div class="cell_name">' + result.name + '</div>' + '<div class="cell_address">' + result.address + '</div>' + '<div class="cell_url"><a href="' + result.url + '">' + result.url + '</a></div>' + '<div class="cell_phone">' + result.phone + '</div>' + '</div>';
+                document.getElementById("sheet").innerHTML += divElement;
+                addPin(mymap, result.lat, result.lon, '<strong>', + result.name + '</strong>');
+              }
+            })
+            .catch(function() {
+              document.getElementById("sheet").innerHTML = "Error in listSheet function";
+            });
+          }
+        function drawMap() {
+            // draw a map using leafletjs and tiles from mapbox
+            var mymap = L.map('mapid').setView([32.221041, -110.971143], 15);
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1Ijoic29maWFtZiIsImEiOiJja2Z5ZGNyMjEwdjQ4MnNxcXIxMHJ3bW82In0.MgA3WjUzVLvvbCw7Vey4gQ'
+            }).addTo(mymap);
+            return mymap;
+          }
+        function addPin(mymap, lat, lon, name) {
+            // add a pin to mymap at lat, lon with a popup
+            L.marker([lat, lon]).addTo(mymap).bindPopup(name);
+          }
       </script>
 
       <script src="https://storage.googleapis.com/feednami-static/js/feednami-client-v1.0.1.js"></script>
@@ -120,6 +139,7 @@
     <div id="rss_items"></div>
     <h2> Free COVID-19 testing sites Tucson </h2>
     <div id="sheet"></div>
+    <div id="mapid"></div>
       </center>
     </body>
 </html>
