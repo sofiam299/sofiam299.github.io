@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Smart Speaker Clss</title>
+  <link>https://sofiam299.github.io/about.html</link>
+  <description>Sofia's story briefs</description>
+  
+  <item>
+    <pubDate>Fri, 23 Oct 2020 09:00:00 -0700</pubDate>
+    <title>MOCA re-opening</title>
+    <link>https://sofiam299.github.io/about.html</link>
+    <description>description of MOCA reopening story</description>
+    <enclosure url="https://sofiam299.github.io/briefs/MOCAbrief.m4a" type="audio/mpeg" length="154624"></enclosure>
+    <guid isPermaLink="false">https://sofiam299.github.io/briefs/MOCAbrief.m4a</guid>
+  </item>
+
+  <item>
+    <pubDate>Mon, 19 Oct 2020 09:00:00 -0700</pubDate>
+    <title>Train 14</title>
+    <link>https://sofiam299.github.io/about.html</link>
+    <description>description of Train 14 LA to Davis story</description>
+    <enclosure url="https://sofiam299.github.io/briefs/Train14brief.m4a" type="audio/mpeg" length="154929"></enclosure>
+    <guid isPermaLink="false">https://sofiam299.github.io/briefs/Train14brief.m4a</guid>
+  </item>
+</channel>
+</rss>
