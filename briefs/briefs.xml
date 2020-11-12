@@ -10,8 +10,8 @@
     <title>MOCA re-opening</title>
     <link>https://sofiam299.github.io/about.html</link>
     <description>description of MOCA reopening story</description>
-    <enclosure url="https://sofiam299.github.io/briefs/MOCAbrief.m4a" type="audio/mpeg" length="154624"></enclosure>
-    <guid isPermaLink="false">https://sofiam299.github.io/briefs/MOCAbrief.m4a</guid>
+    <enclosure url="https://sofiam299.github.io/briefs/MOCAbrief_01.mp3" type="audio/mpeg" length="154624"></enclosure>
+    <guid isPermaLink="false">https://sofiam299.github.io/briefs/MOCAbrief_01.mp3</guid>
   </item>
 
   <item>
@@ -19,8 +19,8 @@
     <title>Train 14</title>
     <link>https://sofiam299.github.io/about.html</link>
     <description>description of Train 14 LA to Davis story</description>
-    <enclosure url="https://sofiam299.github.io/briefs/Train14brief.m4a" type="audio/mpeg" length="154929"></enclosure>
-    <guid isPermaLink="false">https://sofiam299.github.io/briefs/Train14brief.m4a</guid>
+    <enclosure url="https://sofiam299.github.io/briefs/Train14brief_01.mp3" type="audio/mpeg" length="154929"></enclosure>
+    <guid isPermaLink="false">https://sofiam299.github.io/briefs/Train14brief_01.mp3</guid>
   </item>
 </channel>
 </rss>
