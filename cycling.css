@@ -1,0 +1,22 @@
+h2{
+  color:solid;
+}
+.biobox{
+  width: 320px;
+  padding: 10px 10px 10px 10px;
+}
+.name_container {
+  width: 344px;
+  font-size: 2.5em;
+  padding: 20px 20px 20px 20px;
+}
+.content_container {
+  max-width: 768px;
+}
+.bio_container {
+  width: 744px;
+  float: center;
+  font-size: 1.5em;
+  text-align: left;
+  padding: 20px 20px 20px 20px;
+}
